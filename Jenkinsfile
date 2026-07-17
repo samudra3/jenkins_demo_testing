@@ -1,5 +1,8 @@
 pipeline{
       agent any
+      environment{
+            VERCEL_TOKEN = credentials('vercel_id')
+      }
       tools{
             nodejs 'NodeJs22'
       }
@@ -13,6 +16,17 @@ pipeline{
             stage("Build Phase"){
                   steps{
                         sh 'npm run build'
+                  }
+            }
+            stage("Deploy Phase"){
+                  steps{
+                        sh '''
+                            npx vercel deploy \
+                            --prod \
+                            --token $VERCEL_TOKEN \
+                            --yes
+                            '''
+
                   }
             }
       }

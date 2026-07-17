@@ -16,7 +16,7 @@ function App() {
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
         <div>
-          <h1>Owner: SamudraGupta</h1>
+          <h1>Owner: SamudraGupta hero</h1>
           <p>
            This is project use generally for the purpose of the jenkins demonstration.
           </p>

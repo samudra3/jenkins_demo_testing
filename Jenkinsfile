@@ -22,7 +22,6 @@ pipeline{
                   steps{
                         sh '''
                             npx vercel deploy \
-
                             --prod \
                             --token $VERCEL_TOKEN \
                             --yes

@@ -3,7 +3,8 @@ pipeline{
       stages{
             stage('test'){
                   steps{
-                        echo "test is working"
+                        sh 'node -v'
+                        sh 'npm -v'
                   }
             }
       }

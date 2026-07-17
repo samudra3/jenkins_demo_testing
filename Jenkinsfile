@@ -22,7 +22,7 @@ pipeline{
                   steps{
                         sh '''
                             npx vercel deploy \
-                            --project jenkins_vercel_pipeline
+
                             --prod \
                             --token $VERCEL_TOKEN \
                             --yes

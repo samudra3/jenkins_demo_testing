@@ -4,17 +4,25 @@ pipeline{
             nodejs 'NodeJs22'
       }
       stages{
-            stage('Inspect env'){
+            stage('Install Dependencies'){
                   steps{
+                        sh 'npm install'
 
-                        sh 'which node || true'
-                        sh 'node -v'
-                        sh 'which npm || true'
-                        sh 'npm -v'
+                  }
+            }
+            stage("Build Phase"){
+                  steps{
+                        sh 'npm run build'
                   }
             }
       }
       post{
+            success{
+                  echo "successfully completed Install and build"
+            }
+            failure{
+                  echo "failed due to some reason"
+            }
             always{
                   echo 'pipeline finished'
             }

@@ -1,10 +1,15 @@
 pipeline{
       agent any
       stages{
-            stage('test'){
+            stage('Inspect env'){
                   steps{
-                        sh 'node -v'
-                        sh 'npm -v'
+                        sh 'pwd'
+                        sh 'whoami'
+                        sh 'echo $PATH'
+                        sh 'which java'
+                        sh 'which git'
+                        sh 'which node || true'
+                        sh 'which npm || true'
                   }
             }
       }

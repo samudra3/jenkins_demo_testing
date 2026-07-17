@@ -1,16 +1,22 @@
 pipeline{
       agent any
+      tools{
+            nodejs 'NodeJs22'
+      }
       stages{
             stage('Inspect env'){
                   steps{
-                        sh 'pwd'
-                        sh 'whoami'
-                        sh 'echo $PATH'
-                        sh 'which java'
-                        sh 'which git'
+
                         sh 'which node || true'
+                        sh 'node -v'
                         sh 'which npm || true'
+                        sh 'npm -v'
                   }
+            }
+      }
+      post{
+            always{
+                  echo 'pipeline finished'
             }
       }
 }
